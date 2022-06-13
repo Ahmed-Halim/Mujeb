@@ -1,0 +1,11 @@
+const UserModel = require('../models/UserModel')
+
+getUsers = (req, res, next) => {
+    try {
+        res.render('users', { users : UserModel.getUsers() })
+    } catch (error) {
+        res.status(404).render('error', { Msg : error});
+    }
+}
+
+module.exports = { getUsers }
